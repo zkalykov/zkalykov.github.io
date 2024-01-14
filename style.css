@@ -1,0 +1,265 @@
+html{
+  scroll-behavior: smooth;
+    
+}
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
+.navbar {
+    width: 100%;
+    height: 35px; /* Adjusted height */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.8); /* Dark and transparent background */
+}
+
+
+.navbar a {
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 20px; /* Adjusted font size */
+    color: #6868ff;
+    background: linear-gradient(to right, #6868ff, #ff68a5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: white; 
+    transition: 0.6s ease;
+    cursor: pointer;
+}
+
+.first,
+.second,
+.third {
+    height: 100vh; 
+}
+
+.first {
+    background: black;
+  /*
+    background-image: url("https://isotropic.co/wp-content/uploads/2022/07/layers-loop.h264.2020-12-21-11_16_56.gif");
+    background-size: cover;
+*/
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.first .myphoto {
+    position: absolute; /* Use absolute positioning for the image */
+    left: 10%; /* Adjust the left position as needed */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+}
+.first .myphoto img{
+  width: 250px;
+  height: auto;
+  border-radius: 25%;
+
+}
+.abc2{
+  z-index: 2;
+  position: absolute; 
+  font-size: 50px;
+}
+.first .earth-container {
+    position: absolute;
+    transform: translateY(-20%);
+    transform: translateX(30%);
+}
+
+
+
+/*---------------------------------------------------------------------------------------------------*/
+
+
+
+.second {
+    background-color: dark;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.second h1{
+  color: white;
+}
+
+
+.third {
+    background: dark;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+}
+
+
+#container_circle {
+      position: relative;
+      width: 80%;
+      height: 80vh;
+    }
+
+    .circle {
+       position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+    }
+
+.fourth {
+    background: dark;
+    color: black;
+    display: flex;
+
+    height: 100vh;
+}
+.fourth h1{
+    color: white;
+    padding-left: 20%;
+    padding-top: 10%;
+
+     padding-left: 25vh;
+     padding-top: 10px;
+    position: absolute;
+    z-index: 2;"
+}
+
+.project-container {
+  padding: 10%;
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap to the next line */
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .project-box {
+      width: 250px;
+      background: #333;
+      border: 1px solid #555;
+      margin: 10px;
+      text-align: center;
+      border-radius: 15px; /* Rounded corners */
+      overflow: hidden; /* Hide overflowing content */
+      transition: transform 0.3s ease; /* Add smooth transition */
+
+    }
+    .project-box h2,p{
+        background: linear-gradient(to right, #0072ff, #00ffcc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+
+    }
+    .project-box:hover {
+      transform: scale(1.1); /* Scale to 110% on hover */
+    }
+
+    .project-box img {
+      max-width: 100%;
+      height: auto;
+      border-bottom: 1px solid #555;
+      object-fit: cover;
+
+      
+    }
+
+    .project-details {
+      padding: 15px;
+    }
+
+.fifth {
+    background: dark;
+    color: black;
+    display: flex;
+
+    height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.fifth h1 {
+  font-size: 2em;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  color: transparent;
+  background: linear-gradient(to right, #6868ff, #ff68a5);
+  -webkit-background-clip: text;
+  display: inline;
+  background-size: 200% 100%;
+  animation: textAnimation1 5s infinite linear;
+  transition: color 0.3s ease; /* Add a color transition */
+}
+
+@keyframes textAnimation1 {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.fifth h1:hover {
+  color: #6868ff; /* Change the color on hover */
+}
+
+
+
+
+/* HERE CONTACT BUTTON */
+/* Futuristic Button Styles */
+.contact_button {
+    font-weight: bold;
+    font-size: 18px;
+    color: white; /* Blue color */
+    background: linear-gradient(to right, #3498db, #2ecc71); /* Gradient from blue to green */
+    border: none;
+    padding: 12px 24px; /* Adjust padding as needed */
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact_button:hover {
+    background: linear-gradient(to right, #2ecc71, #3498db);
+    transform: scale(1.05); /* Increase size on hover for a subtle effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+
+
+
+
+/*  GOES SIXTH CONTENT */
+
+.sixth {
+    background: dark;
+    color: black;
+    display: flex;
+    height: 100vh;
+
+
+    align-items: center;
+    justify-content: center;
+}
