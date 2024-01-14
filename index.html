@@ -1,159 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="phone_style.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-
-    <title>Zhyrgalbek Kalykov</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
 </head>
+<style type="text/css">
+	body{
+		background: black;
+	}
+	h1{
+		color: white;
+		position: fixed;
+		 position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	   
+	}
+
+</style>
 <body>
-    <div class="navbar">
-        <a href="#first" class="abt">About</a>
-        <a href="#second" class="exp">Experience</a>
-        <a href="#third" class="lab">Lab</a>
-        <a href="#fourth" class="prj">Projects</a>
-     
-    </div>
-
-    <div id="first" class="first">
-
-    	<div class="myphoto">
-        	<img  src="https://www.shutterstock.com/image-vector/tshirt-design-ninja-cat-background-600nw-2302373321.jpg">
-        </div>
-
-        <h1 class="abc2">
-        	Hi, I am 
-        	<span style=" color:#915eff;">   Zhyrgalbek</span>
-        	<br>
-        	<span style="font-size: 35px;">
-        		<span style=" color:#915eff;">I am a</span>
-        		 professinal 
-        		 <br>
-        		 <span class="changeable-text" style="color:#6868ff;">
-        		 	Software Engineer
-        		 </span>
-        	</span>
-
-        </h1>
-
-        <div class="earth-container" id="earth-container"></div><div id="earth-container" class="earth-container"></div>
-        
-    </div>
-
-    <div id="second" class="second">
-        <h1 >
-            <span style="font-size: 50px;">
-                Zhyrgalbek Kalykov 
-            </span>
-            <br>
-            <br> 
-            <span style="
-                    font-size: 30px;color: #6868ff;
-                    background: linear-gradient(to right, #6868ff, #ff68a5);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    color: transparent;
-                    transition: color 0.3s ease;
-
-                ">
-                I am a motivate person to perform everything, 
-                <br>i believe AI will be more advanced
-                
-            </span>
-        </h1>
-        
-
-    </div>
-
-        <div id="third" class="third">
-
-            <div id="container_circle">
-        <div class="circle" id="circle1" style="background-image: url('https://i.pinimg.com/564x/b4/de/20/b4de205cb6d4e7cad43c2971f780cfd9.jpg');"></div>
-        <div class="circle" id="circle2" style="background-image: url('https://p7.hiclipart.com/preview/726/280/982/c-guida-essenziale-per-programmatori-der-c-programmierer-c-lernen-professionell-anwenden-losungen-nutzen-the-c-programming-language-3d-spiele-programmierung-modernes-game-design-mit-directx-9-und-c-c-programming-thumbnail.jpg');"></div>
-        <div class="circle" id="circle3" style="background-image: url('https://ih1.redbubble.net/image.2189776526.6167/ur,pin_large_front,square,600x600.jpg');"></div>
-        <div class="circle" id="circle4" style="background-image: url('https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_960_720.png');"></div>
-        <div class="circle" id="circle5" style="background-image: url('https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png');"></div>
-        <div class="circle" id="circle6" style="background-image: url('https://banner2.cleanpng.com/20180504/obw/kisspng-java-programming-language-computer-programming-obj-java-5aecd0e57187f9.7147867015254694134651.jpg');"></div>
-        <div class="circle" id="circle7" style="background-image: url('https://icons.veryicon.com/png/o/application/designer-icon/sql-5.png');"></div>
-      </div>
-
-    </div>
-    <div id="fourth"class="fourth">
-        <h1>My projects
-        </h1>
-
-        <div class="project-container">
-            <div class="project-box">
-              <img src="files/photo/001.png" alt="Project 1">
-              <div class="project-details">
-                <h2>Project 1</h2>
-                <p>Description of Project 1 goes here. Description of Project 1 goes here. Description of Project 1 goes here.</p>
-                </div>
-            </div>
-
-            <div class="project-box">
-              <img src="files/photo/002.png" alt="Project 1">
-              <div class="project-details">
-                <h2>Project 1</h2>
-                <p>Description of Project 1 goes here. Description of Project 1 goes here. Description of Project 1 goes here.</p>
-                </div>
-            </div>
-            <div class="project-box">
-              <img src="files/photo/003.png" alt="Project 1">
-              <div class="project-details">
-                <h2>Project 1</h2>
-                <p>Description of Project 1 goes here. Description of Project 1 goes here. Description of Project 1 goes here.</p>
-                </div>
-            </div>
-            <div class="project-box">
-              <img src="files/photo/004.png" alt="Project 1">
-              <div class="project-details">
-                <h2>Project 1</h2>
-                <p>Description of Project 1 goes here. Description of Project 1 goes here. Description of Project 1 goes here.</p>
-                </div>
-            </div>
-
-
-        </div>
-
-
-    </div>
-    <div class="fifth">
-        <h1 style="font-family: 'Courier New', monospace; /* Use a monospaced font */
-    font-size: 24px;
-    color: #2ecc71; /* Green color */
-    padding: 8px; /* Add padding for better visibility */
-    border-radius: 4px; /* Add rounded corners */
-    letter-spacing: 1px; /* Adjust letter spacing for a coding feel */
-    white-space: nowrap; /* Prevent line breaks */">    
-            Hello world, I am coming...
-           </h1>
-    </div>
-
-    <div class="sixth">
-
-        <span>
-            <h1 style=" font-family: 'Courier New', monospace; /* Use a monospaced font */
-    font-size: 24px;
-    color: #2ecc71; /* Green color */
-    padding: 8px; /* Add padding for better visibility */
-    border-radius: 4px; /* Add rounded corners */
-    letter-spacing: 1px; /* Adjust letter spacing for a coding feel */
-    white-space: nowrap; /* Prevent line breaks */">/what are you waiting ?</h1>
-            <br>
-            <center>
-            <button class='contact_button'>Contact me</button>
-            </center>
-        </span>
-        
-    </div>
-
-  </body>
-
-<script src="script.js"></script>
-    
+	<h1>Hello world, I am coming...</h1>
+</body>
 </html>
