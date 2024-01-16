@@ -29,7 +29,7 @@ setInterval(changeWord, 2000);
     const earthRadius = 3; // Set the initial Earth radius
     const geometry = new THREE.SphereGeometry(earthRadius, 32, 32);
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load('earth-dark.jpg');
+    const texture = textureLoader.load('files/earth-dark.jpg');
     const material = new THREE.MeshStandardMaterial({ map: texture, color: 0x915eff, transparent: true }); // Set the color to "#915eff" and make material transparent
     const globe = new THREE.Mesh(geometry, material);
     scene.add(globe);
