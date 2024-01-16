@@ -2,25 +2,135 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-</head>
-<style type="text/css">
-	body{
-		background: black;
-	}
-	h1{
-		color: white;
-		position: fixed;
-		 position: fixed;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
-	   
-	}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/phone_style.css">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
 
-</style>
+	<title>Zhyrgalbek Kalykov</title>
+</head>
 <body>
-	<h1>Hello world, I am coming...</h1>
+	<div class="navbar">
+        <a href="#first" class="about">About</a>
+        <a href="#second" class="work">Work</a>
+        <a href="#fifth" class="more">Contact</a>
+	</div>
+
+	<div id="first">
+		<img id="myphoto" src="files/cat.png">
+        
+        <h1 id="first_word">
+        	<span>
+        		Hi, I am <span style=" color:#915eff;">Zhyrgalbek</span>
+        		<br>
+        		<span style=" color:#915eff;">I am a
+        		</span>
+
+        		 professinal 
+        		 <br>
+        		 <span class="changeable-text" style="color:#6868ff;">
+        		 	Software Engineer
+        		</span>
+        	</span>
+        </h1>
+        <div id="earth-container" class="earth-container"></div>
+	</div>
+
+	<div id="second">
+		<h1>
+            <span style="font-size: 50px;">
+                Zhyrgalbek Kalykov 
+            </span>
+            <br>
+            <br> 
+            <span style="
+                    font-size: 30px;color: #6868ff;
+                    background: linear-gradient(to right, #6868ff, #ff68a5);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    transition: color 0.3s ease;
+
+                ">
+                I am a motivate person to perform everything, 
+                <br>like trying new things<br><br>
+                I am an 18-year-old studying Computer Science at  <a target="_blank"href="https://www.na.edu/"id="bc_link">North American University</a>                
+            </span>
+        </h1>
+	</div>
+
+
+	<div id="third">
+		<h1>In which languages am I proficient so far...</h1>
+		<div id="container_circle">
+	        <div class="circle" id="circle1" style="background-image: url('files/js.jpg');"></div>
+	        <div class="circle" id="circle2" style="background-image: url('files/c++.jpg');"></div>
+	        <div class="circle" id="circle3" style="background-image: url('files/python.png');"></div>
+	        <div class="circle" id="circle4" style="background-image: url('files/html.png');"></div>
+	        <div class="circle" id="circle5" style="background-image: url('files/css.png');"></div>
+	        <div class="circle" id="circle6" style="background-image: url('files/java.jpg');"></div>
+	        <div class="circle" id="circle7" style="background-image: url('files/sql.png');"></div>
+      </div>
+	</div>
+
+	<div id="fourth">
+		<h1>My Projects</h1>
+		<br>
+		<div class="projects-container">
+			<div class="project-box">
+				<img src="https://www.shutterstock.com/image-vector/tshirt-design-ninja-cat-background-600nw-2302373321.jpg">
+				<h3>Project 1</h3>
+				<p>Lorem ipsum dolor s</p>
+				<a href="#pro">#github</a>
+				<a href="#pro">#link</a>
+				
+			</div>
+
+			<div class="project-box">
+				<img src="https://icons.veryicon.com/png/o/application/designer-icon/sql-5.png">
+				<h3>Project 1</h3>
+				<p>Lorem ipsum dolor s</p>
+				<a href="#pro">#github</a>
+				<a href="#pro">#link</a>
+				
+			</div>
+
+			<div class="project-box">
+				<img src="https://www.shutterstock.com/image-vector/tshirt-design-ninja-cat-background-600nw-2302373321.jpg">
+				<h3>Project 1</h3>
+				<p>Lorem ipsum dolor s</p>
+				<a href="#pro">#github</a>
+				<a href="#pro">#link</a>
+				
+			</div>
+		</div>
+	</div>
+
+	<div id="fifth">
+		<h1>More about me</h1>
+		<div id="more_about">
+			
+			<a class="lb2" href="#lab">
+				<img src="files/github.png">
+				<h3>Github</h3>
+			</a>
+			
+			<a class="lb2" href="#lab">
+				<img src="files/contact.png">
+				<h3>Contact</h3>
+			</a>
+			
+			<a class="lb2" href="#lab">
+				<img src="files/blog.png">
+				<h3>My Blog</h3>
+			</a>
+			
+			
+			
+		</div>
+	</div>
+	
 </body>
+<script src="script/script.js"></script>
 </html>
