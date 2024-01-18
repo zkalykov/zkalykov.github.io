@@ -307,5 +307,12 @@ body {
     transition: color 0.3s ease;
 }
 
-
+.footer{
+    height: 10vh;
+    background-color: black;
+    font-size: 10px;
+    opacity: 0.5;
+    color: white;
+    text-align: center;
+}
 
