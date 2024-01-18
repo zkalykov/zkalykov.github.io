@@ -19,9 +19,9 @@ Welcome to the open-source repository of my personal resume website! This projec
 ### Installation
 
 1. Clone the repository:
-   git clone git@github.com:zkalykov/zkalykov.github.io.git
+   ```git clone git@github.com:zkalykov/zkalykov.github.io.git```
 2. Navigate to the project directory:
-   cd zkalykov.github.io
+   ```cd zkalykov.github.io```
 3. Open index.html in your preferred web browser.
 
 ## Contributing
