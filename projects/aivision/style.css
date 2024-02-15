@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black; /* Or any color you prefer */
+  display: flex;
+/*  flex-direction: row; /* Align children in a row */*/
+  align-items: stretch; /* Stretch children to fill the container height */
+  height: 100vh;
+  transition: background-color 1s;
+  color:white;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+
+}
+
+#positions {
+  position: absolute;
+  left: 1%; /* 1% from the right edge of the screen */
+  top: 2.5%; /* Align to top with a little space */
+  width: 16%; /* Width of the #info box */
+  height: 90%; /* Adjusted for margin */
+  border-radius: 25px;
+  margin-bottom:2%;
+  padding: 15px;
+}
+#positions #print_pos{
+  text-align: center;
+}
+
+#top_screen {
+  position: absolute;
+  top: 2.9%; /* Align to top with a little space */
+  left: 20%; /* Offset by the width of #positions plus margin */
+  width: 57%; /* Take up the rest of the width minus margins and #info */
+  height: 10%; /* Set height and leave room for spacing */
+  border-radius: 25px;
+  padding: 15px;
+
+  text-align: center;
+}
+
+#screen {
+  position: absolute;
+  top: 19%; /* Below #top_screen including its height and margin */
+  left: 20%; /* Same offset as #top_screen */
+  width: 59.5%; /* Take up the rest of the width minus margins and #info */
+  height: 60%; /* Larger height as it's the main content area */
+  border-radius: 25px;
+
+
+}
+
+#output {
+  position: absolute;
+  top: 81%; /* Below #screen including its height */
+  left: 20%; /* Same offset as #top_screen */
+  width: 57%; /* Take up the rest of the width minus margins and #info */
+  height: 12%; /* Same height as #top_screen */
+  border-radius: 25px;
+  padding: 15px;
+
+  text-align: center;
+}
+#output #signOutput{
+  font-size: 25px;
+  margin-top:3%;
+}
+
+#info {
+  position: absolute;
+  right: 1%; /* 1% from the right edge of the screen */
+  top: 2.5%; /* Align to top with a little space */
+  width: 16%; /* Width of the #info box */
+  height: 90%; /* Adjusted for margin */
+  border-radius: 25px;
+  padding: 15px;
+
+}
+#info h3{
+  text-align: center;
+}
+#info h3 img{
+  height:40px;border-radius: 25px;padding:5px; background-color: #915eff;
+}
+
+
+#positions,#info, #screen,#top_screen,#output{
+  border: 1px solid #915eff;
+}
+
+
+/* THIS FOR WELCOM PAGE */
+
+#welcome {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            z-index: 999999;
+            font-size: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+        #words {
+            transition: transform 0.5s ease-out;
+            display: inline-block;
+        }
+        #img {
+            height: 100px;
+            width: auto;
+            border-radius: 25px;
+            padding: 5px;
+            background-color: #915eff;
+            display: none;
+            position: fixed;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust based on its own size */
+        }
+        .loading {
+            border: 4px solid #f3f3f3; /* Light grey background */
+            border-top: 4px solid #915eff; /* Blue color */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none; /* Hide it initially */
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }

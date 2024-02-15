@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequential Display Example</title>
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+        }
+        #welcome {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            z-index: 999999;
+            font-size: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+        #words {
+            transition: transform 0.5s ease-out;
+            display: inline-block;
+        }
+        #img {
+            height: 100px;
+            width: auto;
+            border-radius: 25px;
+            padding: 5px;
+            background-color: #915eff;
+            display: none;
+            position: fixed;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust based on its own size */
+        }
+        .loading {
+            border: 4px solid #f3f3f3; /* Light grey background */
+            border-top: 4px solid #915eff; /* Blue color */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none; /* Hide it initially */
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome">
+        <h2 id="words"></h2>
+        <img id="img" src="data/ai.png">
+        <div id="loading" class="loading"></div>
+    </div>
+    <div><center><h1>HELLO WORLD, I AM COMING...</h1></center></div>
+    <script>
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function printWordsSequentially() {
+            const words = ["Meet", "new", "AI", "Vision"];
+
+            // Display each word sequentially
+            for (let i = 0; i < words.length; i++) {
+                setTimeout(function() {
+                    document.getElementById("words").innerHTML += (i > 0 ? " " : "") + words[i];
+                }, 1000 * i);
+            }
+
+            // Schedule the movement after all words have been displayed
+            setTimeout(function() {
+                var wordsElement = document.getElementById('words');
+                wordsElement.style.transform = 'translateY(-20vh)';
+            }, 1000 * words.length);
+
+            // Show the image after the words have been moved
+            setTimeout(function() {
+                document.getElementById("img").style.display = 'block';
+            }, 1000 * words.length + 500);
+
+        	setTimeout(function() {
+                showLoading(); // This will show the loading animation
+            }, 1000 * words.length + 1000); // Adjusted to show after the transition
+        	
+        }
+
+        printWordsSequentially();
+    </script>
+</body>
+</html>
