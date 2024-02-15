@@ -27,6 +27,8 @@ async function setupCamera() {
         const model = await handpose.load();
         console.log("Handpose model loaded");
         letthemknow_elemet.innerHTML="<h2>Model laoded Successfully!</h2>";
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('welcome').style.display = 'none';
         return model;
       }
 

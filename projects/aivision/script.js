@@ -46,12 +46,6 @@ function showLoading() {
                 showLoading(); // This will show the loading animation
             }, 1000 * words.length + 1000); // Adjusted to show after the transition
 
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('welcome').style.display = 'none';
-
-            }, 1000 * words.length + 2000); // Adjusted to show after the transition
-            
 
         }
 
