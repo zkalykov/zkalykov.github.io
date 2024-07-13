@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI Chat</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .chat-body {
+            height: calc(100vh - 130px);
+            overflow-y: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        .user-message {
+            background-color: #2d2d2d;
+            color: white;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #000000;
+            color: white;
+            align-self: flex-start;
+        }
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px 20px;
+            background-color: #2d2d2d;
+            color: #aaa;
+            border: 1px solid #444;
+            border-radius: 25px;
+            outline: none;
+        }
+        .input-container button {
+            position: absolute;
+            right: 10px;
+            background-color: #3e2e70;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .input-container button:hover {
+            background-color: #444444;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-300 flex items-center justify-center h-screen">
+
+    <div class="w-full h-full flex flex-col max-w-4xl mx-auto">
+        <div class="chat-header bg-black p-4 text-lg font-bold text-center">Chat with GenAI</div>
+        <div class="chat-body flex flex-col p-4 space-y-4" id="chat-body">
+            <!-- Example User Message -->
+            <div class="message user-message self-end">
+                Hello, how can I improve my AI skills?
+            </div>
+            <!-- Example Bot Message -->
+            <div class="message bot-message self-start">
+                You can start by learning the basics of machine learning and deep learning. There are plenty of online courses and resources available.
+            </div>
+            <!-- Another Example User Message -->
+            <div class="message user-message self-end">
+                Can you suggest any good online courses?
+            </div>
+            <!-- Another Example Bot Message -->
+            <div class="message bot-message self-start">
+                Sure! Some popular platforms include Coursera, edX, and Udacity. They offer courses from top universities and institutions.
+            </div>
+            
+        </div>
+        <div class="chat-footer bg-black p-4 flex items-center space-x-4">
+            <div class="input-container flex-1">
+                <input type="text" id="message-input" placeholder="Try. Experiment." autocomplete="off">
+                <button onclick="sendMessage()">
+                    <!-- Arrow SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function appendMessage(content, isUser = true) {
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message', isUser ? 'user-message' : 'bot-message');
+            messageContainer.textContent = content;
+            document.getElementById('chat-body').appendChild(messageContainer);
+            document.getElementById('chat-body').scrollTop = document.getElementById('chat-body').scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const message = input.value;
+            if (message.trim() === '') return;
+
+            appendMessage(message, true);
+
+            // Simulate bot response
+            setTimeout(() => {
+                appendMessage('This is a simulated bot response.', false);
+            }, 1000);
+
+            input.value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - GenAI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+        }
+        .content-container {
+            background-color: #2d2d2d; /* New background color for the box */
+            border-radius: 15px; /* Rounded corners */
+            min-height: 70vh;
+            min-width: 80vw;
+            text-align: center; /* Center the text */
+            padding: 50px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .highlight {
+            color: #ffd700; /* Gold color for highlighting */
+            font-weight: bold;
+        }
+        .action-button {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px;
+            text-decoration: none;
+            border: 1px solid #444;
+        }
+        .action-button:hover {
+            background-color: #444;
+        }
+        .back-button {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #444;
+        }
+        .back-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <nav class="navbar p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-lg font-bold">Generative <span style="color:#8862f8">AI</span></a>
+            <div class="hidden md:flex md:items-center md:space-x-6">
+                <a href="index.html#about" class="text-gray-300 hover:text-white hover-custom">About</a>
+                <a href="index.html#research" class="text-gray-300 hover:text-white hover-custom">Research</a>
+                <a href="#" id="try-link" class="text-gray-300 hover:text-white hover-custom">Try</a>
+            </div>
+            <div class="relative hidden md:block">
+                <svg id="search-icon-desktop" class="w-6 h-6 text-gray-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 110-16 8 8 0 010 16z"></path>
+                </svg>
+            </div>
+            <button id="menu-button" class="text-white md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="menu" class="hidden md:hidden">
+            <div class="flex flex-col mt-2 space-y-2">
+                <a href="index.html#about" class="text-gray-300 hover:text-white hover-custom">About</a>
+                <a href="index.html#research" class="text-gray-300 hover:text-white hover-custom">Research</a>
+                <a href="#" id="try-link-mobile" class="text-gray-300 hover:text-white hover-custom">Try</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-6">
+        <div class="flex items-center mb-6">
+            <a href="index.html" class="back-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </a>
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-300 ml-4">Research</h1>
+        </div>
+        <div class="content-container">
+            <div class="max-w-4xl mx-auto text-lg text-gray-300 text-left">
+                <h2 class="text-2xl font-bold mb-4">Can AI Think as Human?</h2>
+                <p class="mb-4">
+                    Current artificial intelligence is an algorithm which trained deep to act or do things as given command. However still for more of people interested whether it could achieve that level of humanoid which can think feel and sense as they do. This was the reason to have this research written. I will be doing projects on experimenting with this cognitive AI. And I have read some articles and research on this topic all of those have their different approaches.
+                </p>
+                <p class="mb-4">
+                    First and foremost we must understand how the human brain functions. According to Semrud-Clikeman's research on brain function and learning the brain possesses an 'executive function.' This function enables individuals to evaluate events review past actions and adjust their responses to alternative or different strategies. By understanding these mechanisms we can better explore how AI might replicate or differ from human cognitive processes.
+                </p>
+                <p class="mb-4">
+                    To further our understanding the exploration of cognitive AI involves simulating elements of human cognition within artificial systems. To develop algorithms that not only execute tasks but also exhibit capabilities of self-awareness and emotional intelligence. Key to this endeavor is the integration of neuropsychological models that can guide the development of AI systems capable of more complex human-like thought processes.
+                </p>
+                <p class="mb-4">
+                    In progressing with this research ethical considerations are paramount. As we advance AI's capabilities it is crucial to address the potential impacts of such technologies on human interactions and societal norms. Ensuring that AI development aligns with ethical standards will be essential in fostering technology that benefits humanity while safeguarding individual rights and privacy.
+                </p>
+                <p class="mb-4">
+                    So far what I am planning to do:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Write Machine Learning program</li>
+                        <li>Explore Deep learning and Neural Network</li>
+                        <li>To conclude will do one big project with AI</li>
+                    </ul>
+                </p>
+                <p class="mb-4">
+                    Reference:
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Semrud-Clikeman M. (2015 March 9). Research in Brain Function and Learning. American Psychological Association. Retrieved from <a href="https://www.apa.org/education-career/k12/brain-function" class="highlight">https://www.apa.org/education-career/k12/brain-function</a></li>
+                        <li>Wendrich R. E. (2020). Creative Thinking: Computational Tools Imbued with AI. University of Twente. Cambridge Core. Retrieved from <a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/838A552D3662AD4926CF36B3A4E67CC9/S2633776220000072a.pdf/div-class-title-creative-thinking-computational-tools-imbued-with-ai-div.pdf" class="highlight">https://www.cambridge.org/core/services/aop-cambridge-core/content/view/838A552D3662AD4926CF36B3A4E67CC9/S2633776220000072a.pdf/div-class-title-creative-thinking-computational-tools-imbued-with-ai-div.pdf</a></li>
+                        <li>Lake B. M. Ullman T. D. Tenenbaum J. B. & Gershman S. J. (2016). Building Machines that Learn and Think Like People. Behavioral and Brain Sciences. Cambridge Core. Retrieved from <a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/A9535B1D745A0377E16C590E14B94993/S0140525X16001837a.pdf/div-class-title-building-machines-that-learn-and-think-like-people-div.pdf" class="highlight">https://www.cambridge.org/core/services/aop-cambridge-core/content/view/A9535B1D745A0377E16C590E14B94993/S0140525X16001837a.pdf/div-class-title-building-machines-that-learn-and-think-like-people-div.pdf</a></li>
+                        <li>Dimock W. C. (2021). AI and the Human. Modern Language Quarterly. Cambridge Core. Retrieved from <a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/3FEBDB0945D8CF022EC949D945C80CEA/S0030812921000079a.pdf/div-class-title-ai-and-the-human-div.pdf" class="highlight">https://www.cambridge.org/core/services/aop-cambridge-core/content/view/3FEBDB0945D8CF022EC949D945C80CEA/S0030812921000079a.pdf/div-class-title-ai-and-the-human-div.pdf</a></li>
+                    </ul>
+                </p>
+                <div class="mt-6">
+                    <a href="/mnt/data/Can AI Think as Human by Kalykov.docx" class="action-button" download>Download File</a>
+                    <a href="mailto:?subject=Check out this research on AI&body=I found this interesting research on AI. You can download it here: /mnt/data/Can%20AI%20Think%20as%20Human%20by%20Kalykov.docx" class="action-button">Share</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-gray-400 py-8">
+        <div class="container mx-auto text-center">
+            <p class="mb-4">&copy; 2024 GenAI. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="privacyPolicy.html" class="hover:text-white">Privacy Policy</a>
+                <a href="termsOfService.html" class="hover:text-white">Terms of Service</a>
+                <a href="contact.html" class="hover:text-white">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('search-icon-desktop').addEventListener('click', function() {
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('main-content');
+            overlay.classList.add('active');
+            mainContent.classList.add('blur-background');
+        });
+
+        document.getElementById('search-icon-mobile').addEventListener('click', function() {
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('main-content');
+            overlay.classList.add('active');
+            mainContent.classList.add('blur-background');
+        });
+
+        document.getElementById('cancel-button').addEventListener('click', function() {
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('main-content');
+            overlay.classList.remove('active');
+            mainContent.classList.remove('blur-background');
+        });
+
+        // Open a blank page when Try link is clicked
+        document.getElementById('try-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('', '_blank');
+        });
+
+        document.getElementById('try-link-mobile').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('', '_blank');
+        });
+    </script>
+</body>
+</html>
