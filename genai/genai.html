@@ -6,11 +6,17 @@
     <title>GenAI Chat</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #292929;
+        }
         .chat-body {
             height: calc(100vh - 130px);
             overflow-y: auto;
             padding-left: 10px;
             padding-right: 10px;
+        }
+        .chat-body::-webkit-scrollbar {
+            display: none;
         }
         .message {
             padding: 10px;
@@ -20,12 +26,11 @@
             word-wrap: break-word;
         }
         .user-message {
-            background-color: #2d2d2d;
+            background-color: #4b4b4b;
             color: white;
             align-self: flex-end;
         }
         .bot-message {
-            background-color: #000000;
             color: white;
             align-self: flex-start;
         }
@@ -39,8 +44,8 @@
         .input-container input {
             flex: 1;
             padding: 10px 20px;
-            background-color: #2d2d2d;
-            color: #aaa;
+            background-color: #424242;
+            color: #bababa;
             border: 1px solid #444;
             border-radius: 25px;
             outline: none;
@@ -48,7 +53,6 @@
         .input-container button {
             position: absolute;
             right: 10px;
-            background-color: #3e2e70;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -60,14 +64,30 @@
             cursor: pointer;
         }
         .input-container button:hover {
+            background-color: #2d2d2d;
+            
+        }
+        .go-down-button {
+            position: fixed;
+            bottom: 80px;
+            right: 50%;
+            display: none;
             background-color: #444444;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .go-down-button svg {
+            width: 12px;
+            height: 12px;
         }
     </style>
 </head>
-<body class="bg-black text-gray-300 flex items-center justify-center h-screen">
-
+<body class="text-gray-300 flex items-center justify-center h-screen">
     <div class="w-full h-full flex flex-col max-w-4xl mx-auto">
-        <div class="chat-header bg-black p-4 text-lg font-bold text-center">Chat with GenAI</div>
+        <div class="chat-header p-4 text-lg font-bold text-center">Generative AI <span class="text-xs font-normal" title="This version is 0.1">(version-0.1)</span></div>
         <div class="chat-body flex flex-col p-4 space-y-4" id="chat-body">
             <!-- Example User Message -->
             <div class="message user-message self-end">
@@ -86,8 +106,9 @@
                 Sure! Some popular platforms include Coursera, edX, and Udacity. They offer courses from top universities and institutions.
             </div>
             
+            
         </div>
-        <div class="chat-footer bg-black p-4 flex items-center space-x-4">
+        <div class="chat-footer p-4 flex items-center space-x-4">
             <div class="input-container flex-1">
                 <input type="text" id="message-input" placeholder="Try. Experiment." autocomplete="off">
                 <button onclick="sendMessage()">
@@ -98,31 +119,102 @@
                 </button>
             </div>
         </div>
+        <button id="go-down-button" class="go-down-button" onclick="scrollToBottom()">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
     </div>
 
     <script>
+        const chatBody = document.getElementById('chat-body');
+        const goDownButton = document.getElementById('go-down-button');
+        const input = document.getElementById('message-input');
+        let userScrolled = false;
+        let lastScrollTop = 0; // Variable to store the last scroll position
+    
+        chatBody.addEventListener('scroll', () => {
+            const currentScrollTop = chatBody.scrollTop;
+            const isAtBottom = Math.abs(chatBody.scrollHeight - chatBody.scrollTop - chatBody.clientHeight) < 1;
+    
+            // Check if user scrolls down but is not at the bottom
+            if (currentScrollTop > lastScrollTop && !isAtBottom) {
+                if (userScrolled) {
+                    goDownButton.style.display = 'block'; // Show the button only if the user scrolled up before
+                }
+            } else if (isAtBottom) {
+                goDownButton.style.display = 'none';
+                userScrolled = false; // Reset the flag when they reach the bottom
+            } else {
+                userScrolled = true; // Set the flag when user scrolls up
+                goDownButton.style.display = 'none'; // Hide the button when scrolling up
+            }
+            lastScrollTop = currentScrollTop; // Update the last scroll position
+        });
+    
         function appendMessage(content, isUser = true) {
             const messageContainer = document.createElement('div');
             messageContainer.classList.add('message', isUser ? 'user-message' : 'bot-message');
-            messageContainer.textContent = content;
-            document.getElementById('chat-body').appendChild(messageContainer);
-            document.getElementById('chat-body').scrollTop = document.getElementById('chat-body').scrollHeight;
+            chatBody.appendChild(messageContainer);
+    
+            if (isUser) {
+                messageContainer.textContent = content;
+            } else {
+                const words = content.split(' ');
+                let i = 0;
+                const speed = 50; // Speed in milliseconds for the bot typing effect
+    
+                function typeWriter() {
+                    if (i < words.length) {
+                        messageContainer.textContent += (i === 0 ? '' : ' ') + words[i];
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
+                }
+                typeWriter();
+            }
+    
+            if (!userScrolled) {
+                scrollToBottom();
+            }
         }
-
+    
         function sendMessage() {
-            const input = document.getElementById('message-input');
             const message = input.value;
             if (message.trim() === '') return;
-
+    
             appendMessage(message, true);
-
-            // Simulate bot response
-            setTimeout(() => {
-                appendMessage('This is a simulated bot response.', false);
-            }, 1000);
-
             input.value = '';
+    
+            // Simulate a bot response
+            setTimeout(() => {
+                const botMessage = "This is a simulated bot response. Each word appears one by one, like I'm typing.";
+                appendMessage(botMessage, false);
+            }, 500); // Delay before bot starts "typing"
         }
+    
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();  // Prevents the default action (line break)
+                sendMessage();
+            }
+        });
+    
+        function scrollToBottom() {
+            if (!userScrolled) {
+                chatBody.scrollTo({
+                    top: chatBody.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    
+        goDownButton.addEventListener('click', () => {
+            userScrolled = false; // Reset the user scroll flag when they manually scroll to bottom
+            scrollToBottom();
+        });
     </script>
+    
+    
 </body>
 </html>
