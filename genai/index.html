@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GenAI</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
+    <style> 
         .search-input {
             background-color: #2a2a2a;
             width: 100%;
@@ -50,8 +50,12 @@
         .cancel-icon {
             right: 16px;
         }
+        .cancel-icon:hover{
+            border-radius: 25px;
+            background-color: #3e2e70;
+        }
         .content-container {
-            background-color: #2d2d2d; /* New background color for the box */
+            background-color: #272727; /* New background color for the box */
             border-radius: 15px; /* Rounded corners */
             min-height: 70vh;
             min-width: 80vw;
@@ -77,6 +81,7 @@
             font-size: 1.5rem;
             width: 50%;
         }
+        
         .input-icon {
             position: absolute;
             right: 26%;
@@ -85,6 +90,14 @@
             background-color: #3e2e70;
             border-radius: 50px;
             padding: 0px 7px;
+        }
+        @media (max-width:800px) { /* Adjusts width for screens wider than 640px */
+            .placeholder-input {
+                width: 80%; 
+            }
+            .input-icon {
+                right: 12%;
+            }
         }
         .input-icon:hover {
             background-color: #444444;
@@ -103,13 +116,14 @@
 </head>
 <body class="bg-black text-white">
     <div id="main-content">
+        <!-- FIRST PAGE -->
         <nav class="navbar p-4">
             <div class="container mx-auto flex justify-between items-center">
                 <a href="index.html" class="text-white text-lg font-bold">Generative <span style="color:#8862f8">AI</span></a>
                 <div class="hidden md:flex md:items-center md:space-x-6">
                     <a href="#about" class="text-gray-300 hover:text-white hover-custom">About</a>
                     <a href="#research" class="text-gray-300 hover:text-white hover-custom">Research</a>
-                    <a href="genai.html" id="try-link" class="text-gray-300 hover:text-white hover-custom">Try</a>
+                    <a href="genai.html"  class="text-gray-300 hover:text-white hover-custom">Try</a>
                 </div>
                 <div class="relative hidden md:block">
                     <svg id="search-icon-desktop" class="w-6 h-6 text-gray-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -141,16 +155,15 @@
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 text-gray-300 pl-4 pr-4">Try new <span style="color:#6f52c7">Generative AI</span></h1>
                 <div class="placeholder-input-container">
                     <input type="text" class="placeholder-input" placeholder="Try. Experiment.">
-                    <span class="input-icon">&rarr;</span>
+                    <span class="input-icon"><a href="genai.html">&rarr;</a></span>
                 </div>
             </div>
         </div>
-
-
     </div>
 
-    <div id="overlay" class="overlay">
-        <div class="search-container">
+    <div id="overlay" class="overlay" onclick="closeOverlay(event)">
+        <!-- OVERLAY FOR SEARCH -->
+        <div class="search-container" onclick="event.stopPropagation()">
             <input type="text" placeholder="Press 'Return' to search" class="search-input text-white text-3xl p-4 pl-20 pr-16 rounded-full focus:outline-none">
             <svg class="w-8 h-8 text-gray-400 search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 110-16 8 8 0 010 16z"></path>
@@ -163,22 +176,28 @@
         </div>
     </div>
 
-    <div id="about" class="container mx-auto p-6">
-        <div class="bg-black text-white py-16">
-            <h2 class="text-5xl font-bold mb-6 text-center text-gray-300">About <span style="color:#6f52c7">GenAI</span></h2>
-            <div class="max-w-4xl mx-auto text-lg text-gray-300">
-                <p class="mb-4">
-                    Welcome to <span class="text-yellow-400 font-semibold">GenAI</span>, the premier destination for the latest advancements and research in artificial intelligence. Founded by <span class="text-blue-400 font-semibold">Zhyrgalbek Kalykov</span> and supervised by <span class="text-indigo-400 font-semibold">Professor Sabina Adhikari</span>, this project is dedicated to exploring the future of AI. Our mission is to provide valuable insights, trends, and breakthroughs that shape the industry. We are committed to offering resources and information for researchers, developers, and AI enthusiasts alike.
+
+    <div id="about" class="container mx-auto px-6 py-16">
+        <!-- ABOUT -->
+        <div class="bg-black text-gray-300">
+            <h2 class="text-5xl font-bold mb-6 text-center">
+                About <span class="text-purple-500">GenAI</span>
+            </h2>
+            <div class="max-w-4xl mx-auto text-lg">
+                <p class="mb-6 leading-relaxed">
+                    Welcome to <span class="text-blue-400">GenAI</span>, the premier destination for the latest advancements and research in artificial intelligence. Founded by <span class="text-blue-500 font-semibold">Zhyrgalbek Kalykov</span> and supervised by <span class="text-blue-500 font-semibold">Professor Sabina Adhikari</span>, this project is dedicated to exploring the future of AI. Our mission is to provide valuable insights, trends, and breakthroughs that shape the industry. We are committed to offering resources and information for researchers, developers, and AI enthusiasts alike.
                 </p>
-                <p class="mb-4">
-                    At GenAI, we believe in the transformative power of artificial intelligence and its potential to revolutionize various sectors, including <span class="text-yellow-400 font-semibold">healthcare</span>, <span class="text-blue-400 font-semibold">finance</span>, <span class="text-indigo-400 font-semibold">education</span>, and more. Our team of experts is focused on investigating the ethical implications, technological innovations, and real-world applications of AI. This project includes developing a simple chatbot, trained with thousands of datasets gradually, with the mission to advance knowledge in <span class="text-yellow-400 font-semibold">AI</span>, <span class="text-blue-400 font-semibold">machine learning</span>, and <span class="text-indigo-400 font-semibold">deep learning</span>.
+                <p class="mb-6 leading-relaxed">
+                    At <span class="text-blue-400">GenAI</span>, we believe in the transformative power of artificial intelligence and its potential to revolutionize various sectors, including healthcare, finance, education, and more. Our team of experts is focused on investigating the ethical implications, technological innovations, and real-world applications of AI. This project includes developing a simple chatbot, trained with thousands of datasets gradually, with the mission to advance knowledge in AI, machine learning, and deep learning.
                 </p>
-                <p class="mb-4">
-                    Join us on this journey as we delve into the world of AI. We offer <span class="text-yellow-400 font-semibold">in-depth articles</span>, <span class="text-blue-400 font-semibold">expert opinions</span>, and <span class="text-indigo-400 font-semibold">collaborative opportunities</span> to foster a deeper understanding and appreciation of this rapidly evolving field. Alongside our research, we are committed to improving design, ensuring that our work is not only functional but also aesthetically pleasing.
+                <p class="leading-relaxed">
+                    Join us on this journey as we delve into the world of AI. We offer in-depth articles, expert opinions, and collaborative opportunities to foster a deeper understanding and appreciation of this rapidly evolving field. Alongside our research, we are committed to improving design, ensuring that our work is not only functional but also aesthetically pleasing.
                 </p>
             </div>
         </div>
     </div>
+    
+    
 
     <div id="research" class="container mx-auto p-6 text-gray-300">
         <!-- Research Updates Section -->
@@ -205,18 +224,34 @@
         </div>
     </div>
 
-    <footer class="text-gray-400 py-8">
+    <footer class="text-gray-300 py-8">
         <div class="container mx-auto text-center">
             <p class="mb-4">&copy; 2024 GenAI. All rights reserved.</p>
             <div class="flex justify-center space-x-6">
-                <a href="#" class="hover:text-white">Privacy Policy</a>
-                <a href="#" class="hover:text-white">Terms of Service</a>
-                <a href="#" class="hover:text-white">Contact Us</a>
+                <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-white">Terms of Service</a>
+                <a href="contact.html" class="hover:text-white">Contact Us</a>
             </div>
         </div>
     </footer>
 
     <script>
+
+        function closeOverlay(event) {
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('main-content');
+            if (!event.target.matches('.search-input')) {
+                overlay.classList.remove('active');
+                mainContent.classList.remove('blur-background');
+            }
+        }
+
+        document.getElementById('cancel-button').addEventListener('click', function() {
+            const overlay = document.getElementById('overlay');
+            const mainContent = document.getElementById('main-content');
+            overlay.classList.remove('active');
+            mainContent.classList.remove('blur-background');
+        });
         document.getElementById('menu-button').addEventListener('click', function() {
             const menu = document.getElementById('menu');
             if (menu.classList.contains('hidden')) {
