@@ -19,6 +19,14 @@
             margin-top: 50px;
             margin-bottom: 50px;
         }
+        .content-container img {
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 20px;
+            }
+        }
         .highlight {
             color: #ffd700; /* Gold color for highlighting */
             font-weight: bold;
@@ -51,6 +59,32 @@
         .back-button:hover {
             background-color: #444;
         }
+        #image-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #image-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        #image-overlay .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-black text-white">
@@ -60,7 +94,7 @@
             <div class="hidden md:flex md:items-center md:space-x-6">
                 <a href="index.html#about" class="text-gray-300 hover:text-white hover-custom">About</a>
                 <a href="index.html#research" class="text-gray-300 hover:text-white hover-custom">Research</a>
-                <a href="#" id="try-link" class="text-gray-300 hover:text-white hover-custom">Try</a>
+                <a href="genai.html" class="text-gray-300 hover:text-white hover-custom">Try</a>
             </div>
             <div class="relative hidden md:block">
                 <svg id="search-icon-desktop" class="w-6 h-6 text-gray-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -94,15 +128,19 @@
         <div class="content-container">
             <div class="max-w-4xl mx-auto text-lg text-gray-300 text-left">
                 <h2 class="text-2xl font-bold mb-4">Can AI Think as Human?</h2>
+                <p class="text-sm text-gray-400 mb-8">July 5, 2024</p>
                 <p class="mb-4">
                     Current artificial intelligence is an algorithm which trained deep to act or do things as given command. However still for more of people interested whether it could achieve that level of humanoid which can think feel and sense as they do. This was the reason to have this research written. I will be doing projects on experimenting with this cognitive AI. And I have read some articles and research on this topic all of those have their different approaches.
                 </p>
+                
                 <p class="mb-4">
                     First and foremost we must understand how the human brain functions. According to Semrud-Clikeman's research on brain function and learning the brain possesses an 'executive function.' This function enables individuals to evaluate events review past actions and adjust their responses to alternative or different strategies. By understanding these mechanisms we can better explore how AI might replicate or differ from human cognitive processes.
                 </p>
+                
                 <p class="mb-4">
                     To further our understanding the exploration of cognitive AI involves simulating elements of human cognition within artificial systems. To develop algorithms that not only execute tasks but also exhibit capabilities of self-awareness and emotional intelligence. Key to this endeavor is the integration of neuropsychological models that can guide the development of AI systems capable of more complex human-like thought processes.
                 </p>
+                <img src="./data/research_data.png" alt="Research Image 3" class="mb-6 w-full rounded-lg">
                 <p class="mb-4">
                     In progressing with this research ethical considerations are paramount. As we advance AI's capabilities it is crucial to address the potential impacts of such technologies on human interactions and societal norms. Ensuring that AI development aligns with ethical standards will be essential in fostering technology that benefits humanity while safeguarding individual rights and privacy.
                 </p>
@@ -124,8 +162,8 @@
                     </ul>
                 </p>
                 <div class="mt-6">
-                    <a href="/mnt/data/Can AI Think as Human by Kalykov.docx" class="action-button" download>Download File</a>
-                    <a href="mailto:?subject=Check out this research on AI&body=I found this interesting research on AI. You can download it here: /mnt/data/Can%20AI%20Think%20as%20Human%20by%20Kalykov.docx" class="action-button">Share</a>
+                    <a title="This is not available yet" class="action-button" download>Download File</a>
+                    <a  title="This is not available yet" class="action-button">Share</a>
                 </div>
             </div>
         </div>
@@ -135,12 +173,17 @@
         <div class="container mx-auto text-center">
             <p class="mb-4">&copy; 2024 GenAI. All rights reserved.</p>
             <div class="flex justify-center space-x-6">
-                <a href="privacyPolicy.html" class="hover:text-white">Privacy Policy</a>
-                <a href="termsOfService.html" class="hover:text-white">Terms of Service</a>
+                <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-white">Terms of Service</a>
                 <a href="contact.html" class="hover:text-white">Contact Us</a>
             </div>
         </div>
     </footer>
+    
+    <div id="image-overlay" class="flex">
+        <span class="close-button">&times;</span>
+        <img src="" alt="Full Size Image">
+    </div>
 
     <script>
         document.getElementById('menu-button').addEventListener('click', function() {
@@ -152,31 +195,24 @@
             }
         });
 
-        document.getElementById('search-icon-desktop').addEventListener('click', function() {
-            const overlay = document.getElementById('overlay');
-            const mainContent = document.getElementById('main-content');
-            overlay.classList.add('active');
-            mainContent.classList.add('blur-background');
+        document.querySelectorAll('.content-container img').forEach(img => {
+            img.addEventListener('click', function() {
+                const overlay = document.getElementById('image-overlay');
+                const overlayImg = overlay.querySelector('img');
+                overlayImg.src = this.src;
+                overlay.style.display = 'flex';
+            });
         });
 
-        document.getElementById('search-icon-mobile').addEventListener('click', function() {
-            const overlay = document.getElementById('overlay');
-            const mainContent = document.getElementById('main-content');
-            overlay.classList.add('active');
-            mainContent.classList.add('blur-background');
+        document.getElementById('image-overlay').addEventListener('click', function(e) {
+            if (e.target !== this.querySelector('img')) {
+                this.style.display = 'none';
+            }
         });
 
-        document.getElementById('cancel-button').addEventListener('click', function() {
-            const overlay = document.getElementById('overlay');
-            const mainContent = document.getElementById('main-content');
-            overlay.classList.remove('active');
-            mainContent.classList.remove('blur-background');
-        });
-
-        // Open a blank page when Try link is clicked
-        document.getElementById('try-link').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('', '_blank');
+        document.querySelector('#image-overlay .close-button').addEventListener('click', function() {
+            const overlay = document.getElementById('image-overlay');
+            overlay.style.display = 'none';
         });
 
         document.getElementById('try-link-mobile').addEventListener('click', function(e) {

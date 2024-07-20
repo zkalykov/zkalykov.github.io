@@ -88,29 +88,10 @@
 <body class="text-gray-300 flex items-center justify-center h-screen">
     <div class="w-full h-full flex flex-col max-w-4xl mx-auto">
         <div class="chat-header p-4 text-lg font-bold text-center">Generative AI <span class="text-xs font-normal" title="This version is 0.1">(version-0.1)</span></div>
-        <div class="chat-body flex flex-col p-4 space-y-4" id="chat-body">
-            <!-- Example User Message -->
-            <div class="message user-message self-end">
-                Hello, how can I improve my AI skills?
-            </div>
-            <!-- Example Bot Message -->
-            <div class="message bot-message self-start">
-                You can start by learning the basics of machine learning and deep learning. There are plenty of online courses and resources available.
-            </div>
-            <!-- Another Example User Message -->
-            <div class="message user-message self-end">
-                Can you suggest any good online courses?
-            </div>
-            <!-- Another Example Bot Message -->
-            <div class="message bot-message self-start">
-                Sure! Some popular platforms include Coursera, edX, and Udacity. They offer courses from top universities and institutions.
-            </div>
-            
-            
-        </div>
+        <div class="chat-body flex flex-col p-4 space-y-4" id="chat-body"></div>
         <div class="chat-footer p-4 flex items-center space-x-4">
             <div class="input-container flex-1">
-                <input type="text" id="message-input" placeholder="Try. Experiment." autocomplete="off">
+                <input type="text" id="message-input" placeholder="Message..." autocomplete="off">
                 <button onclick="sendMessage()">
                     <!-- Arrow SVG -->
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -127,16 +108,18 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
         const chatBody = document.getElementById('chat-body');
         const goDownButton = document.getElementById('go-down-button');
         const input = document.getElementById('message-input');
         let userScrolled = false;
         let lastScrollTop = 0; // Variable to store the last scroll position
-    
+        let botTyping = false; // Variable to check if bot is still typing
+
         chatBody.addEventListener('scroll', () => {
             const currentScrollTop = chatBody.scrollTop;
             const isAtBottom = Math.abs(chatBody.scrollHeight - chatBody.scrollTop - chatBody.clientHeight) < 1;
-    
+
             // Check if user scrolls down but is not at the bottom
             if (currentScrollTop > lastScrollTop && !isAtBottom) {
                 if (userScrolled) {
@@ -151,55 +134,62 @@
             }
             lastScrollTop = currentScrollTop; // Update the last scroll position
         });
-    
+
         function appendMessage(content, isUser = true) {
             const messageContainer = document.createElement('div');
             messageContainer.classList.add('message', isUser ? 'user-message' : 'bot-message');
             chatBody.appendChild(messageContainer);
-    
+
             if (isUser) {
                 messageContainer.textContent = content;
             } else {
                 const words = content.split(' ');
                 let i = 0;
                 const speed = 50; // Speed in milliseconds for the bot typing effect
-    
+
                 function typeWriter() {
                     if (i < words.length) {
                         messageContainer.textContent += (i === 0 ? '' : ' ') + words[i];
                         i++;
                         setTimeout(typeWriter, speed);
+                    } else {
+                        botTyping = false; // Bot finished typing
                     }
                 }
                 typeWriter();
             }
-    
+
             if (!userScrolled) {
                 scrollToBottom();
             }
         }
-    
-        function sendMessage() {
-            const message = input.value;
-            if (message.trim() === '') return;
-    
-            appendMessage(message, true);
-            input.value = '';
-    
+
+        function sendMessage(message = null) {
+            if (botTyping) return; // Prevent sending a new message if bot is still typing
+
+            const msg = message || input.value;
+            if (msg.trim() === '') return;
+
+            appendMessage(msg, true);
+            if (!message) {
+                input.value = '';
+            }
+
             // Simulate a bot response
+            botTyping = true; // Set bot typing flag
             setTimeout(() => {
                 const botMessage = "This is a simulated bot response. Each word appears one by one, like I'm typing.";
                 appendMessage(botMessage, false);
             }, 500); // Delay before bot starts "typing"
         }
-    
+
         input.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault();  // Prevents the default action (line break)
                 sendMessage();
             }
         });
-    
+
         function scrollToBottom() {
             if (!userScrolled) {
                 chatBody.scrollTo({
@@ -208,11 +198,20 @@
                 });
             }
         }
-    
+
         goDownButton.addEventListener('click', () => {
             userScrolled = false; // Reset the user scroll flag when they manually scroll to bottom
             scrollToBottom();
         });
+
+        // Automatically send a message when the script runs
+        function sendWelcomeMessage() {
+            appendMessage("Hello! And welcome to Generative AI. Our preliminary model is currently on the training. But you can take a look at how fast our platform works. Thank you for your understanding !", false);
+        }
+
+        sendWelcomeMessage(); // Call the function to send the welcome message
+    });
+
     </script>
     
     
